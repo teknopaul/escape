@@ -1,0 +1,41 @@
+.TH escape 1 "copyleft teknopaul" escape "escape" 
+.SH NAME
+escape
+.SH SYNOPSIS
+A simple stream editor that escapes characters on output.
+.SH DESCRIPTION
+escape escapes characters in strings in a familiar way, by default it escapes strings for inclusion in C programs.
+.PP
+For example if the input is 12"23 the output is 12\\"34.
+.PP
+Languages supported are c, json, html, and xml, only escaping strings is suppoerted not any other data types
+Its primary utility is for CGI scripts to output JSON, or other web friendly formats.
+.PP
+.SH OPTIONS
+.B -f format
+one of
+.PP
+.B c
+ - C strings
+.PP
+.B xml 
+ - XML strings, ' is escaped to &apos; despite this being optional.
+.PP
+.B html
+ - A small subset of possible entities is escaped < > " ? space and new lines \\n.
+.PP
+.B json
+ - Identical to c
+.PP
+.SH COPYRIGHT
+Copyright (C) 2013 Teknopaul
+.PP
+escape is free software licensed under GPL.
+.SH AUTHOR
+.nf
+teknopaul@everywhere  
+  i.e. twitter, gmail, yahoo, irc, msn, facebook, github
+http://github.com/teknopaul
+http://tp23.org
+.fi
+
