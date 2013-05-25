@@ -74,7 +74,7 @@ int main (int argc, char *argv[]) {
   
 }
 
-static int index_of(int len, const char in_chars[], char ch) {
+static int index_of(int len, const char in_chars[], int ch) {
   int i;
   for(i = 0 ; i < len ; i++) {
     if (ch == in_chars[i]) return i;
@@ -85,7 +85,7 @@ static int index_of(int len, const char in_chars[], char ch) {
 
 static int escape(FILE *in, FILE *out,  lang_def def) {
   int index;
-  char ch;
+  int ch;
   while( (ch = fgetc(in)) != EOF ) {
     index = index_of(def.len, def.in_chars, ch);
     if (index > -1) {
