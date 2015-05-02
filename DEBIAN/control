@@ -1,0 +1,16 @@
+Package: escape
+Version: 1.0
+Section:
+Priority: optional
+Architecture: all
+Essential: no
+Depends: 
+Pre-Depends:
+Recommends: perl
+Suggests:
+Installed-Size: 9800
+Maintainer: teknopaul [me@teknopaul.com]
+Conflicts:
+Replaces:
+Provides: escape
+Description: Utility to escape output for JSON, HTML or XML
