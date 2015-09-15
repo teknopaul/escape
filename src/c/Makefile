@@ -7,7 +7,7 @@ escapemake: escape.c xml.h c.h json.h html.h
 	gcc -Wall -o escape escape.c
 
 
-.PHONY: clean install uninstall
+.PHONY: clean install uninstall deb deploy-local deploy-remote
 
 clean:
 	rm escape
