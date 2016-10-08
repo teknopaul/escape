@@ -6,7 +6,7 @@ const char *XML_OUT[] = { "$apos;", "&quot;", "&amp;", "$lt;", "&gt;" };
 
 
 lang_def xml = {
-  57,
+  5,
   XML_IN, 
   XML_OUT
 };
