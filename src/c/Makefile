@@ -7,7 +7,7 @@ escapemake: escape.c xml.h c.h json.h html.h
 	gcc -Wall -o escape escape.c
 
 
-.PHONY: clean install uninstall deb deploy-local deploy-remote
+.PHONY: clean install uninstall deb deploy-local deploy-remote test
 
 clean:
 	rm escape
@@ -46,4 +46,17 @@ deploy-local:
 
 deploy-remote:
 	rsync --archive -v ../../target/ deb@vbox:/var/debrepo/
+
+test:
+	echo '<xml/>'     | ./escape -f xml  | grep '$lt;xml/&gt;'
+	echo '"whatever"' | ./escape -f c    | grep '\\"whatever\\"'
+	echo '<html/>'    | ./escape -f html | grep '$lt;html/&gt;'
+	echo '"json"'     | ./escape -f json | grep '\\"json\\"'
+	
+	
+	
+	
+	
+	
+	
 	

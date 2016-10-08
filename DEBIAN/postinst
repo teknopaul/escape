@@ -1,3 +1,1 @@
 #!/bin/sh
-chmod ugo+x /opt/ops/cgi/Dnsmasq/*.cgi
-chmod ugo+x /opt/ops/bin/dnsmasq-log.sh

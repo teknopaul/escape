@@ -30,9 +30,9 @@ static int escape(FILE *in, FILE *out, lang_def def);
 int main (int argc, char *argv[]) {
   char *fvalue = "c";
   int ch;
-     
+
   opterr = 0;
-     
+
   while ((ch = getopt (argc, argv, "f:")) != -1) {
     switch (ch)
     {
@@ -44,7 +44,7 @@ int main (int argc, char *argv[]) {
           fprintf(stderr, "Specify the escape format\n");
         }
         else {
-          fprintf(stderr, "Unknown option character `\\x%x'\n", optopt);         
+          fprintf(stderr, "Unknown option character `\\x%x'\n", optopt);
         }
         return ARG_ERROR;
       default:
