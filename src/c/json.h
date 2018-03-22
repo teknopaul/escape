@@ -1,9 +1,8 @@
 /*
  * JSON Strings definitions
  */
-const char JSON_IN[]   = { '\'',   '\"'   };
-const char *JSON_OUT[] = { "\\\'", "\\\"" };
-
+const char JSON_IN[]   = { '\'',   '\"'  , '\n' , '\t'};
+const char *JSON_OUT[] = { "\\\'", "\\\"", "\\n", "\\t"};
 
 lang_def json = {
   2,

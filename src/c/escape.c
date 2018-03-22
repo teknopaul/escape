@@ -25,7 +25,7 @@ typedef struct  {
 #include "xml.h"
 
 static int escape(FILE *in, FILE *out, lang_def def);
-
+static int sanename(FILE *in, FILE *out);
 
 int main (int argc, char *argv[]) {
   char *fvalue = "c";
@@ -51,27 +51,31 @@ int main (int argc, char *argv[]) {
         return ARG_ERROR;
     }
   }
-  
-  
-  if ( strcmp("json", fvalue) == 0 ) {
-    return escape(stdin, stdout, json);
-  }
-  
+
+
   if ( strcmp("c", fvalue) == 0 ) {
     return escape(stdin, stdout, c);
   }
-  
+
+  if ( strcmp("json", fvalue) == 0 ) {
+    return escape(stdin, stdout, json);
+  }
+
   if ( strcmp("html", fvalue) == 0 ) {
     return escape(stdin, stdout, html);
   }
-  
+
   if ( strcmp("xml", fvalue) == 0 ) {
     return escape(stdin, stdout, xml);
   }
-  
+
+  if ( strcmp("sanename", fvalue) == 0 ) {
+    return sanename(stdin, stdout);
+  }
+
   fprintf(stderr, "Unknown format '%s'\n", fvalue);
   return OTHER_ERROR;
-  
+
 }
 
 static int index_of(int len, const char in_chars[], int ch) {
@@ -91,9 +95,14 @@ static int escape(FILE *in, FILE *out,  lang_def def) {
     if (index > -1) {
       fputs(def.out_strings[index], out);
     }
-    else {
-      fputc(ch, out);
-    }
+    else fputc(ch, out);
   }
+  return 0;
+}
+
+
+static int sanename(FILE *in, FILE *out) {
+  int ch;
+  while( (ch = fgetc(in)) != EOF ) if ( (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || ch == '-') fputc(ch, out);
   return 0;
 }
